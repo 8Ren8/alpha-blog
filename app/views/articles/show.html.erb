@@ -7,3 +7,7 @@
 
 <p><strong>Title: </strong><%= @article.title %></p>
 <p><strong>Description: </strong><%= @article.description %></p>
+
+<%= link_to 'Edit', edit_article_path(@article.id) %> |
+<%= link_to 'Delete', article_path(@article.id), method: :delete, data: { confirm: "Are You Sure?" } %> |
+<%= link_to 'Back to Articles Listing', articles_path %>
