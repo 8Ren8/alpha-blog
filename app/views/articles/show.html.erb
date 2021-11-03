@@ -1,13 +1,22 @@
-<h2>Show Article Details</h2>
 
-<!--
-#<% %> is for compiler to evaluate the code as ruby code
-#<%= %> adding equal means evaluate as ruby code then render the code 
--->
+<h2 class = "text-center mt-4"><%= @article.title %></h2>
 
-<p><strong>Title: </strong><%= @article.title %></p>
-<p><strong>Description: </strong><%= @article.description %></p>
-
-<%= link_to 'Edit', edit_article_path(@article.id) %> |
-<%= link_to 'Delete', article_path(@article.id), method: :delete, data: { confirm: "Are You Sure?" } %> |
-<%= link_to 'Back to Articles Listing', articles_path %>
+<div class = "container">
+     <div class = "row justify-content-md-center">
+        <div class = "col-8 mt-4 mb-4">
+            <div class="card shadow mb-4 bg-white rounded">
+                <div class="card-header font-italic">
+                     User
+                </div>
+                <div class="card-body">
+                    <div class="card-text"><%= simple_format(@article.description) %></div>
+                    <%= link_to 'Edit', edit_article_path(@article.id), class: "btn btn-outline-success" %> 
+                    <%= link_to 'Delete', article_path(@article.id), method: :delete, data: { confirm: "Are You Sure?" }, class: "btn btn-outline-danger" %>
+                    </br></br>
+                    <small>Created <%= time_ago_in_words(@article.created_at) %> ago, 
+                    edited <%= time_ago_in_words(@article.updated_at) %> ago</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
