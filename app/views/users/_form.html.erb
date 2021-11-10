@@ -1,0 +1,40 @@
+<div class = "container">
+    <div class = "row justify-content-center">
+        <div class = "col-10">
+            <%= render 'articles/error', obj: @user %>
+            <%= form_with(model: @user, class: "shadow p-3 mb-4 bg-white rounded", local: true) do |f| %>
+
+                <div class = "form-group">
+                    <%= f.label :username, class: "col-form-label" %>
+                    <div>
+                        <%= f.text_field :username, class: "form-control", placeholder: "Create your username" %>
+                    </div>
+                </div>
+
+                <div class = "form-group">
+                    <%= f.label :email, class: "col-form-label" %>
+                    <div>
+                        <%= f.email_field :email, class: "form-control", placeholder: "Enter your email" %>
+                    </div>
+                </div>
+
+                <div class = "form-group">
+                    <%= f.label :password, class: "col-form-label" %>
+                    <div>
+                        <%= f.password_field :password, class: "form-control", placeholder: "Create your password" %>
+                    </div>
+                </div>
+
+                <div class = "form-group text-center">
+                    <%= f.submit "Sign Up", class: "btn btn-outline-info btn-lg" %></br>
+                </div>
+
+
+            <% end %>
+
+            <div class = "form-group text-center mb-5">
+                <%= link_to 'Back to Articles Listing', articles_path, class: "btn btn-outline-dark" %>
+            </div>
+        </div>
+    </div>
+</div>
