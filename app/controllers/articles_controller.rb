@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
 
     def index
         #adding @ will turn a variable into instance variable that could be used on other pages
-        @articles = Article.all
+        @articles = Article.paginate(page: params[:page], per_page: 5)
     end
 
     def new
