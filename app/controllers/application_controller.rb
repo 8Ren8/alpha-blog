@@ -10,4 +10,11 @@ class ApplicationController < ActionController::Base
         #!! turn current_user instance variable into boolean
         !!current_user
     end
+
+    def require_user
+        if !logged_in?
+            flash[:alert] = "You must log in first before you can do that"
+            redirect_to login_path
+        end
+    end
 end

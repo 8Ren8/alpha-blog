@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
     before_action :set_article, only:[:show, :edit, :update, :destroy]
+    before_action :require_user, except:[:show, :index]
+    before_action :require_same_user, only:[:edit, :update, :destroy]
 
     def show
         #@article = Article.find(params[:id])
@@ -61,6 +63,13 @@ class ArticlesController < ApplicationController
         #Strong parameters - whitelisting of data (values associated with attributes) that are received through the params hash. 
         #During this process for articles you had to 'whitelist' the data coming through for the title and description fields.
         params.require(:article).permit(:title, :description)
+    end
+
+    def require_same_user
+        if current_user != @article.user
+            flash[:alert] = "You can only edit or delete your own article"
+            redirect_to @article
+        end
     end
 
 end
