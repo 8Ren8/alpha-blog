@@ -1,9 +1,31 @@
 <div class = "container">
+    <!-- My own work for changing alert color based on action
+        <% flash.each do |name, msg| %>
+            <% if name == 'alert' %>
+                <div class="alert alert-danger" role="alert">
+                    <%= msg %>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+            <% else %>
+                <div class="alert alert-success" role="alert">
+                    <%= msg %>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <% end %>
+        <% end %>
+    -->
+
+    <!-- Udemy answer -->
     <% flash.each do |name, msg| %>
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-<%= name == "notice" ? "success" : "danger" %>" role="alert">
             <%= msg %>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true">&times;</span>
             </button>
         </div>
     <% end %>
