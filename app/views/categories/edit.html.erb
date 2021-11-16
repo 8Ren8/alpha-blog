@@ -1,4 +1,4 @@
-<h1 class = "text-center mt-4" >Create a new category</h1>
+<h1 class = "text-center mt-4" Edit category name</h1>
 
 <div class = "container">
     <div class = "row justify-content-center">
@@ -6,7 +6,7 @@
             <%= render 'categories/form' %>
 
             <div class = "form-group text-center mb-5">
-                <%= link_to 'Back to Categories Listing', categories_path, class: "btn btn-outline-dark" %>
+                <%= link_to 'Back to Categories Listing', categories_path(@category), class: "btn btn-outline-dark" %>
             </div>
         </div>
     </div>
