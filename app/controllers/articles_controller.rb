@@ -62,7 +62,7 @@ class ArticlesController < ApplicationController
     def article_params
         #Strong parameters - whitelisting of data (values associated with attributes) that are received through the params hash. 
         #During this process for articles you had to 'whitelist' the data coming through for the title and description fields.
-        params.require(:article).permit(:title, :description)
+        params.require(:article).permit(:title, :description, category_ids: [])
     end
 
     def require_same_user

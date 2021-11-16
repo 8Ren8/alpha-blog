@@ -18,6 +18,14 @@
                     </div>
                 </div>
 
+                <div class = "form-group">
+                    <%= f.label :category, class: "col-form-label" %>
+                    <div>
+                        <%= f.collection_select :category_ids, Category.all, :id, :name, 
+                        {prompt: "Select a category (Can be empty or more than one)"}, {multiple: true, size: 4, class: "custom-select"} %>
+                    </div>
+                </div>
+
                 <div class = "form-group text-center">
                     <%= f.submit class: "btn btn-outline-info btn-lg" %></br>
                 </div>
